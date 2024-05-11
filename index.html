@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishi Rohan Kalapala - Portfolio</title>
+    <!-- Add Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('final.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; /* Remove default margin */
+        }
+
+        .brush-script-text {
+            font-family: 'Brush Script', cursive;
+            font-size: 48px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%; /* Ensure header spans the full width */
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #download-btn {
+            background-color: #FF6B6B;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #download-btn:hover {
+            background-color: #E63946;
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            header {
+                padding: 10px; /* Adjust padding */
+            }
+            header h1 {
+                font-size: 20px; /* Adjust font size */
+            }
+            nav ul li {
+                margin-right: 10px; /* Adjust margin */
+            }
+            #download-btn {
+                padding: 8px 16px; /* Adjust padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Rishi Rohan.</h1>
+            <!-- You can replace h1 with an image for your logo -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="download-btn">Download Portfolio</button>
+    </header>
+
+    <!-- Your content here -->
+
+    <script>
+        document.getElementById("download-btn").addEventListener("click", function() {
+            // Replace this with the path to your PDF file
+            var pdfURL = "C:\Users\ADMIN\Desktop\portfolio1\Untitled design.pdf";
+            
+            fetch(pdfURL)
+            .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement("a");
+                a.href = url;
+                a.download = "RishiRohan_Portfolio.pdf";
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+        });
+    </script>
+</body>
+</html>
